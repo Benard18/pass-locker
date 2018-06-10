@@ -49,8 +49,8 @@ def savingprogress():
     print('In this application we save your progress for later use!!!')
     print('PLease choose which account type you want us to save for you. ')
     print("\n")
-    placed = input("Facebook,\n twitter,\n google,\n instagram,\n tinder,\n whatsApp(you might be dumb to choose this)\n")
-    if placed == "Facebook":
+    placed = input("Facebook,\n Twitter,\n Google,\n Instagram,\n Tinder,\n WhatsApp(you might be dumb to choose this)\n")
+    if placed == "Facebook" or "facebook" or "fb":
         emailfb = input("Please place you're email based on your facebook acc")
         passfb = input("pLace youre password")
         file = open("facebook.txt","a")
@@ -62,7 +62,57 @@ def savingprogress():
 
         print ("Your Facebook account has been saved bruv. ")
         print ("Now choose another criteria bruv.")
+        savingprogress()
 
+    elif placed == "Twitter" or "twitter" or "tweets":
+        emailtw = input("Please place you're email based on your twitter acc")
+        passtw = input("pLace youre password")
+        file = open("twitter.txt","a")
+        file.write (emailtw)
+        file.write (",")
+        file.write (passtw)
+        file.write("\n")
+        file.close()
+
+        print ("Your twitter account has been saved bruv. ")
+        print ("Now choose another criteria bruv.")
+        savingprogress()
+
+    elif placed == "google" or "Google":
+        emailgg = input("Please place you're email based on your facebook acc")
+        passgg = input("pLace youre password")
+        file = open("google.txt","a")
+        file.write (emailgg)
+        file.write (",")
+        file.write (passgg)
+        file.write("\n")
+        file.close()
+        print ("Your google account has been saved bruv. ")
+        print ("Now choose another criteria bruv.")
+        savingprogress()
+
+    elif placed == "Instagram":
+        emailig = input("Please place you're email or IG.handle based on your Instagram acc")
+        passig = input("pLace youre password")
+        file = open("instagram.txt","a")
+        file.write (emailig)
+        file.write (",")
+        file.write (passig)
+        file.write("\n")
+        file.close()
+
+        print ("Your Instagram account has been saved bruv. ")
+        print ("Now choose another criteria bruv.")
+        savingprogress()
+
+
+    elif placed == "tinder" or "Tinder":
+        print("We dont do dating bruhh :-DD come on talk to chick stop being salty.....")
+        savingprogress()
+
+    elif placed == "whatsapp":
+        print("NO....just no.....please..")
+        savingprogress()
 
 def tryagain():
     status2 = input("Are you a registered user?yes or no?")
