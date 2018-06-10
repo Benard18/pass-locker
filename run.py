@@ -39,6 +39,7 @@ def oldUser():
             if username == login:
                 logged_in = password == passw      
                 break
+                
         if logged_in: 
             print ("Login successful!")
             savingprogress()
@@ -49,10 +50,10 @@ def savingprogress():
     print('In this application we save your progress for later use!!!')
     print('PLease choose which account type you want us to save for you. ')
     print("\n")
-    placed = input("Facebook,\n Twitter,\n Google,\n Instagram,\n Tinder,\n WhatsApp(you might be dumb to choose this)\n")
+    placed = input("Facebook,\n Twitter,\n Google,\n Instagram,\n Tinder,\n WhatsApp(you might be dumb to choose this)\nOr if you saved and want to view?\n")
     if placed == "Facebook" or "facebook" or "fb":
-        emailfb = input("Please place you're email based on your facebook acc")
-        passfb = input("pLace youre password")
+        emailfb = input("Please place you're email based on your facebook acc   ")
+        passfb = input("pLace youre password   ")
         file = open("facebook.txt","a")
         file.write (emailfb)
         file.write (",")
@@ -62,6 +63,8 @@ def savingprogress():
 
         print ("Your Facebook account has been saved bruv. ")
         print ("Now choose another criteria bruv.")
+        print ("\n")
+        print ("\n")
         savingprogress()
 
     elif placed == "Twitter" or "twitter" or "tweets":
@@ -76,6 +79,8 @@ def savingprogress():
 
         print ("Your twitter account has been saved bruv. ")
         print ("Now choose another criteria bruv.")
+        print ("\n")
+        print ("\n")
         savingprogress()
 
     elif placed == "google" or "Google":
@@ -89,6 +94,8 @@ def savingprogress():
         file.close()
         print ("Your google account has been saved bruv. ")
         print ("Now choose another criteria bruv.")
+        print ("\n")
+        print ("\n")
         savingprogress()
 
     elif placed == "Instagram":
@@ -103,17 +110,85 @@ def savingprogress():
 
         print ("Your Instagram account has been saved bruv. ")
         print ("Now choose another criteria bruv.")
+        print ("\n")
+        print ("\n")
         savingprogress()
 
+    elif placed == "savedmenus":
+        viewing()
 
     elif placed == "tinder" or "Tinder":
         print("We dont do dating bruhh :-DD come on talk to chick stop being salty.....")
+        print ("\n")
+        print ("\n")
         savingprogress()
 
     elif placed == "whatsapp":
         print("NO....just no.....please..")
+        print ("\n")
+        print ("\n")
         savingprogress()
 
+def viewing():
+    print("Or would you like to view youre passcodes?")
+    confirm=input("yes or no")
+    if confirm == "yes":
+        click=input("pick your acc fb, Ig, tweet or google")
+        if click == "fb":
+            facebk = open("facebook.txt","r")
+            facebk.readline()
+            facebk.split("\n")
+            facebk.close()
+            email1 = input("place youre email to confirm")
+            for linez in facebk:
+                emailfb, passfb = linez.split(",")
+                print("here are your details")
+                if emailfb == email1:
+                    print(emailfb, passfb)
+    
+    
+        if click == "Ig":
+            insta = open("instagram.txt","r")
+            insta.readline()
+            insta.split("\n")
+            insta.close()
+            insta1 = input("place youre handle to confirm")
+            for linez in insta:
+                emailig, passig = linez.split(",")
+                print("here are your details")
+                if emailig == insta1:
+                    print(emailig, passig)
+    
+    
+        if click == "google":
+            googl = open("google.txt","r")
+            googl.readline()
+            googl.split("\n")
+            googl.close()
+            email2 = input("place youre email to confirm")
+            for linez in googl:
+                emailgg, passgg = linez.split(",")
+                print("here are your details")
+                if emailgg == email2:
+                    print(email2, passgg)
+
+        if click == "tweet":
+            tweett = open("twitter.txt","r")
+            tweett.readline()
+            tweett.split("\n")
+            tweett.close()
+            email3 = input("place youre email to confirm")
+            for linez in tweett:
+                emailtw, passtw = linez.split(",")
+                print("here are your details")
+                if emailtw == email3:
+                    print(email3, passtw)
+
+    elif confirm == "no":
+        savingprogress()                
+
+                
+            
 def tryagain():
     status2 = input("Are you a registered user?yes or no?")
     if status2 == "yes":
