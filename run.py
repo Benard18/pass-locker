@@ -1,4 +1,5 @@
 #!/usr/bin/env python3.6
+from clean import title
 def newUser():
         print("Yippeeee......we love visitors and due to that slight note..")
         print("\n")
@@ -123,7 +124,7 @@ def savingprogress():
         print ("\n")
         savingprogress()
 
-    elif placed == "whatsapp":
+    elif placed == "whatsapp" or placed == "WhatsApp":
         print("NO....just no.....please..")
         print ("\n")
         print ("\n")
@@ -136,13 +137,13 @@ def viewing():
         click=input("pick your acc fb, Ig, tweet or google")
         if click == "fb":
             facebk = open("facebook.txt","r")
-            facebk.readline()
-            facebk.split("\n")
+            facedata = facebk.read()
+            facedata.split("\n")
             if '' in facebk:
-                facebk.remove('')
-            facebk.close()
+                facedata.remove('')
+            facedata.close()
             email1 = input("place youre email to confirm")
-            for linez in facebk:
+            for linez in facedata:
                 Logged_in = False
                 emailfb, passfb = linez.split(",")
                 print("here are your details")
@@ -155,11 +156,11 @@ def viewing():
     
         if click == "Ig":
             insta = open("instagram.txt","r")
-            insta.readline()
-            insta.split("\n")
-            if '' in insta:
-                insta.remove('')
-            insta.close()
+            instadata = insta.readline()
+            instadata.split("\n")
+            if '' in instadata:
+                instadata.remove('')
+            instadata.close()
             insta1 = input("place youre handle to confirm")
             for linez in insta:
                 Logged_in = False
@@ -171,13 +172,13 @@ def viewing():
     
         if click == "google":
             googl = open("google.txt","r")
-            googl.readline()
-            googl.split("\n")
-            if '' in googl:
-                googl.remove('')
-            googl.close()
+            googledata = googl.readline()
+            googledata.split("\n")
+            if '' in googledata:
+                googledata.remove('')
+            googledata.close()
             email2 = input("place youre email to confirm")
-            for linez in googl:
+            for linez in googledata:
                 Logged_in = False
                 emailgg, passgg = linez.split(",")
                 print("here are your details")
@@ -186,13 +187,13 @@ def viewing():
 
         if click == "tweet":
             tweett = open("twitter.txt","r")
-            tweett.readline()
-            tweett.split("\n")
-            if '' in googl:
-                googl.remove('')
-            tweett.close()
+            tweetdata = tweett.readline()
+            tweetdata.split("\n")
+            if '' in tweetdata:
+                tweetdata.remove('')
+            tweetdata.close()
             email3 = input("place youre email to confirm")
-            for linez in tweett:
+            for linez in tweetdata:
                 Logged_in = False
                 emailtw, passtw = linez.split(",")
                 print("here are your details")
@@ -229,6 +230,7 @@ if '' in UserData:
 openfile.close()
 def displayMenu():
     # print(UserData)
+    title()
     print("Welcome To The Password Locker Application!")
     print("\n")
     print("We have alot in stored for you....like literally we store passwords... ")
