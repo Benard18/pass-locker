@@ -50,8 +50,8 @@ def savingprogress():
     print('In this application we save your progress for later use!!!')
     print('PLease choose which account type you want us to save for you. ')
     print("\n")
-    placed = input("Facebook,\n Twitter,\n Google,\n Instagram,\n Tinder,\n WhatsApp(you might be dumb to choose this)\nOr if you saved and want to view?\n")
-    if placed == "Facebook" or "facebook" or "fb":
+    placed = input("Facebook,\n Twitter,\n Google,\n Instagram,\n Tinder,\n WhatsApp(you might be dumb to choose this)\nOr if you saved and want to view?type savedmenus \n")
+    if placed == "Facebook" or placed=="facebook" or placed=="fb":
         emailfb = input("Please place you're email based on your facebook acc   ")
         passfb = input("pLace youre password   ")
         file = open("facebook.txt","a")
@@ -67,7 +67,7 @@ def savingprogress():
         print ("\n")
         savingprogress()
 
-    elif placed == "Twitter" or "twitter" or "tweets":
+    elif placed == "Twitter" or placed=="twitter" or placed=="tweets":
         emailtw = input("Please place you're email based on your twitter acc")
         passtw = input("pLace youre password")
         file = open("twitter.txt","a")
@@ -83,7 +83,7 @@ def savingprogress():
         print ("\n")
         savingprogress()
 
-    elif placed == "google" or "Google":
+    elif placed == "google" or placed=="Google":
         emailgg = input("Please place you're email based on your facebook acc")
         passgg = input("pLace youre password")
         file = open("google.txt","a")
@@ -117,7 +117,7 @@ def savingprogress():
     elif placed == "savedmenus":
         viewing()
 
-    elif placed == "tinder" or "Tinder":
+    elif placed == "tinder" or placed == "Tinder":
         print("We dont do dating bruhh :-DD come on talk to chick stop being salty.....")
         print ("\n")
         print ("\n")
@@ -138,25 +138,34 @@ def viewing():
             facebk = open("facebook.txt","r")
             facebk.readline()
             facebk.split("\n")
+            if '' in facebk:
+                facebk.remove('')
             facebk.close()
             email1 = input("place youre email to confirm")
             for linez in facebk:
+                Logged_in = False
                 emailfb, passfb = linez.split(",")
                 print("here are your details")
-                if emailfb == email1:
+                if Logged_in == emailfb == email1:
                     print(emailfb, passfb)
+
+                
+                        
     
     
         if click == "Ig":
             insta = open("instagram.txt","r")
             insta.readline()
             insta.split("\n")
+            if '' in insta:
+                insta.remove('')
             insta.close()
             insta1 = input("place youre handle to confirm")
             for linez in insta:
+                Logged_in = False
                 emailig, passig = linez.split(",")
                 print("here are your details")
-                if emailig == insta1:
+                if Logged_in == emailig == insta1:
                     print(emailig, passig)
     
     
@@ -164,24 +173,30 @@ def viewing():
             googl = open("google.txt","r")
             googl.readline()
             googl.split("\n")
+            if '' in googl:
+                googl.remove('')
             googl.close()
             email2 = input("place youre email to confirm")
             for linez in googl:
+                Logged_in = False
                 emailgg, passgg = linez.split(",")
                 print("here are your details")
-                if emailgg == email2:
+                if Logged_in == emailgg == email2:
                     print(email2, passgg)
 
         if click == "tweet":
             tweett = open("twitter.txt","r")
             tweett.readline()
             tweett.split("\n")
+            if '' in googl:
+                googl.remove('')
             tweett.close()
             email3 = input("place youre email to confirm")
             for linez in tweett:
+                Logged_in = False
                 emailtw, passtw = linez.split(",")
                 print("here are your details")
-                if emailtw == email3:
+                if Logged_in == emailtw == email3:
                     print(email3, passtw)
 
     elif confirm == "no":
@@ -208,6 +223,9 @@ filename = 'Login.txt'
 openfile = open(filename,"r")
 UserData = openfile.readline()
 UserData = UserData.split('\n')
+if '' in UserData:
+    UserData.remove('')
+
 openfile.close()
 def displayMenu():
     # print(UserData)
